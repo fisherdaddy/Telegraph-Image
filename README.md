@@ -79,8 +79,6 @@ Hostloc @feixiang和@乌拉擦 提供的思路和代码
 3、新增图片总数量统计
 当开启图片管理功能后，可在后台顶部查看记录中的图片数量
 
-![](https://im.gurl.eu.org/file/b7a37c08dc2c504199824.png)
-
 4、新增图片文件名搜索
 当开启图片管理功能后，可在后台搜索框使用图片文件名称，快速搜索定位需要管理的图片
 
@@ -137,3 +135,9 @@ Cloudflare KV每天只有1000次的免费写入额度，每有一张新的图片
 This project is tested with BrowserStack.
 
 This project is support by [Cloudflare](https://www.cloudflare.com/).
+
+
+### TIPS
+
+在原项目基础上，为了防止图床被滥用，增加登录逻辑，参考：[cloudflare-pages-auth](https://github.com/Charca/cloudflare-pages-auth/tree/main)
+
