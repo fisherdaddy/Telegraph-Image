@@ -2,6 +2,12 @@ import { CFP_ALLOWED_PATHS } from './constants';
 import { getCookieKeyValue } from './utils';
 import { getTemplate } from './template';
 
+// 访问file路径下的图片文件不需要登录
+function matchPathname(pathname: string): boolean {
+  const regex = /^\/file\/[^/]+\.png$/;
+  return regex.test(pathname);
+}
+
 export async function onRequest(context: {
   request: Request;
   next: () => Promise<Response>;
@@ -16,6 +22,7 @@ export async function onRequest(context: {
   if (
     cookie.includes(cookieKeyValue) ||
     CFP_ALLOWED_PATHS.includes(pathname) ||
+    matchPathname(pathname) ||
     !env.CFP_PASSWORD
   ) {
     // Correct hash in cookie, allowed path, or no password set.
